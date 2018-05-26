@@ -22,4 +22,9 @@ export class SpacexApiProvider {
     return this.http.get<ILaunch[]>(endpointUrl);
   }
 
+  getNextLaunch(): Observable<ILaunch>{
+    const endpointUrl = `${this.baseUrl}/launches/next`
+    return this.http.get<ILaunch>(endpointUrl);
+  }
+
 }
