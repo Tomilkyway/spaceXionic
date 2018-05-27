@@ -15,7 +15,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {LaunchListPage} from "../pages/launch-list/launch-list";
 import {LaunchDetailPage} from "../pages/launch-detail/launch-detail";
 import {RocketDetailPage} from "../pages/rocket-detail/rocket-detail";
-import {RocketListPage} from "../pages/rocket-list/rocket-list";
+import { RocketListPage } from '../pages/rocket-list/rocket-list';
+import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
+import { SettingsPage } from '../pages/settings/settings';
+import { LaunchpadListPage } from '../pages/launchpad-list/launchpad-list';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import {RocketListPage} from "../pages/rocket-list/rocket-list";
     LaunchListPage,
     LaunchDetailPage,
     RocketDetailPage,
-    RocketListPage
+    RocketListPage,
+    CapsuleListPage,
+    LaunchpadListPage,
+    SettingsPage
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,10 @@ import {RocketListPage} from "../pages/rocket-list/rocket-list";
     LaunchListPage,
     LaunchDetailPage,
     RocketDetailPage,
-    RocketListPage
+    RocketListPage,
+    CapsuleListPage,
+    LaunchpadListPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,

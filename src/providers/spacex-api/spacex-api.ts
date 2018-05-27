@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {ILaunch} from "../../models/ILaunch";
+import { IRocket } from '../../models/IRocket';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -22,6 +23,10 @@ export class SpacexApiProvider {
     return this.http.get<ILaunch[]>(endpointUrl);
   }
 
+  getAllRockets(): Observable<IRocket[]>{
+    const endpointUrl = `${this.baseUrl}/rockets`
+    return this.http.get<IRocket[]>(endpointUrl);
+  }
   getPastLaunches(): Observable<ILaunch[]>{
     const endpointUrl = `${this.baseUrl}/launches`
     return this.http.get<ILaunch[]>(endpointUrl);
@@ -36,5 +41,4 @@ export class SpacexApiProvider {
     const endpointUrl = `${this.baseUrl}/launches/next`
     return this.http.get<ILaunch>(endpointUrl);
   }
-
 }
