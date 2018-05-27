@@ -17,13 +17,27 @@ import {ILaunch} from "../../models/ILaunch";
 })
 export class LaunchListPage {
 
-  launches : ILaunch[];
+  pastLaunches : ILaunch[];
+  upcomingLaunches : ILaunch[];
+  nextLaunch : ILaunch;
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private spaceXApi : SpacexApiProvider) {
 
-    this.spaceXApi.getAllLaunches().subscribe(data=>{
-      this.launches = data;
-    })
+    this.spaceXApi.getPastLaunches().subscribe(data=>{
+      this.pastLaunches = data;
+    });
+
+    this.spaceXApi.getNextLaunch().subscribe(data=>{
+      this.nextLaunch = data;
+    });
+
+    this.spaceXApi.getUpcomingLaunches().subscribe(data=>{
+      this.upcomingLaunches = data;
+    });
+
+
+    //Default segment select
+    this.segmentChoice = "past-launches";
   }
 
   ionViewDidLoad() {
