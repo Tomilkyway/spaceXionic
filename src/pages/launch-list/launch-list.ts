@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpacexApiProvider} from "../../providers/spacex-api/spacex-api";
 import {ILaunch} from "../../models/ILaunch";
+import {LaunchDetailPage} from "../launch-detail/launch-detail";
 
 /**
  * Generated class for the LaunchListPage page.
@@ -20,6 +21,8 @@ export class LaunchListPage {
   pastLaunches : ILaunch[];
   upcomingLaunches : ILaunch[];
   nextLaunch : ILaunch;
+  //Default segment select
+  segmentChoice = "past-launches";
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private spaceXApi : SpacexApiProvider) {
 
@@ -35,13 +38,13 @@ export class LaunchListPage {
       this.upcomingLaunches = data;
     });
 
-
-    //Default segment select
-    this.segmentChoice = "past-launches";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LaunchListPage');
   }
 
+  goToLaunchDetail(launch : ILaunch){
+    this.navCtrl.push(LaunchDetailPage, launch);
+  }
 }
