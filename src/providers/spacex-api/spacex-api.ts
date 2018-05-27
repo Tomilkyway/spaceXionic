@@ -27,4 +27,18 @@ export class SpacexApiProvider {
     const endpointUrl = `${this.baseUrl}/rockets`
     return this.http.get<IRocket[]>(endpointUrl);
   }
+  getPastLaunches(): Observable<ILaunch[]>{
+    const endpointUrl = `${this.baseUrl}/launches`
+    return this.http.get<ILaunch[]>(endpointUrl);
+  }
+
+  getUpcomingLaunches(): Observable<ILaunch[]>{
+    const endpointUrl = `${this.baseUrl}/launches/upcoming`
+    return this.http.get<ILaunch[]>(endpointUrl);
+  }
+
+  getNextLaunch(): Observable<ILaunch>{
+    const endpointUrl = `${this.baseUrl}/launches/next`
+    return this.http.get<ILaunch>(endpointUrl);
+  }
 }
