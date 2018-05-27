@@ -57,7 +57,7 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'next-launches'">
-      <button ion-item *ngFor="let launch of upcomingLaunches">
+      <button ion-item *ngFor="let launch of upcomingLaunches" (click)="goToLaunchDetail(launch)">
         <ion-avatar item-start>
           <img src="{{launch.links.mission_patch_small}}">
         </ion-avatar>

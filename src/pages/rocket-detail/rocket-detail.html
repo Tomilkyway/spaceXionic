@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{rocket.rocket_name}}</ion-title>
+    <ion-title *ngIf="rocket">{{rocket.rocket_name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
