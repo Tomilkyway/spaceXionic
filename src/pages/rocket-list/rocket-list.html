@@ -14,7 +14,7 @@
 
 <ion-content padding>
   <ion-list >
-    <button ion-item *ngFor="let rocket of rockets">
+    <button ion-item *ngFor="let rocket of rockets" (click)="goToRocketDetail(rocket)">
       <h2>{{rocket.name}}</h2>
       <p>{{rocket.type}}</p>
       <p>{{rocket.id}}</p>

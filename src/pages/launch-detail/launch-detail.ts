@@ -21,6 +21,7 @@ export class LaunchDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.launch = this.navParams.data;
+    console.log(this.launch);
   }
 
   ionViewDidLoad() {
@@ -28,6 +29,7 @@ export class LaunchDetailPage {
   }
 
   goToRocketDetail(){
+    console.log(this.launch);
     this.navCtrl.push(RocketDetailPage, this.launch.rocket);
   }
 

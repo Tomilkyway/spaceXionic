@@ -19,7 +19,7 @@
     <img src="assets/imgs/nextLaunch.jpg" class="launch-img"/>
     <ion-card-content>
       <ion-card-title>
-          7d : 13h : 32m: 32s
+          {{timeForNextLaunch}}
       </ion-card-title>
 
       <ion-row>
@@ -57,7 +57,7 @@
     </ion-list>
 
     <ion-list *ngSwitchCase="'next-launches'">
-      <button ion-item *ngFor="let launch of upcomingLaunches">
+      <button ion-item *ngFor="let launch of upcomingLaunches" (click)="goToLaunchDetail(launch)">
         <ion-avatar item-start>
           <img src="{{launch.links.mission_patch_small}}">
         </ion-avatar>

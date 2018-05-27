@@ -19,8 +19,8 @@ export class RocketDetailPage {
   rocket : IRocket;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
     this.rocket = this.navParams.data;
+    console.log(this.rocket);
   }
 
   ionViewDidLoad() {
