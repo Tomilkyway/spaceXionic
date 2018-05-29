@@ -29,7 +29,8 @@ export class LaunchListPage {
   constructor(private navCtrl: NavController, private navParams: NavParams, private spaceXApi : SpacexApiProvider) {
 
     this.spaceXApi.getPastLaunches().subscribe(data=>{
-      this.pastLaunches = data;
+      this.pastLaunches = data.reverse();
+      console.log(this.pastLaunches[0].links.video_link);
     });
 
     this.spaceXApi.getNextLaunch().subscribe(data=>{
@@ -50,13 +51,13 @@ export class LaunchListPage {
     var timeDiff = Math.abs(now.getTime() - launchDate.getTime());
     var diffSec = Math.ceil(timeDiff / (1000));
 
-    var nbDays  = parseInt(diffSec / (3600 * 24));
+    var nbDays  = Math.floor(diffSec / (3600 * 24));
     var nbDaysInSec = nbDays * 3600 * 24;
 
-    var nbHours = parseInt((diffSec - nbDaysInSec) / (3600));
+    var nbHours = Math.floor((diffSec - nbDaysInSec) / (3600));
     var nbHoursInSec = nbHours * 3600;
 
-    var nbMins  = parseInt((diffSec - nbHoursInSec - nbDaysInSec) / 60);
+    var nbMins  = Math.floor((diffSec - nbHoursInSec - nbDaysInSec) / 60);
     var nbMinsInSec = nbMins * 60;
 
     var nbSecs = diffSec - nbMinsInSec - nbHoursInSec - nbDaysInSec;
