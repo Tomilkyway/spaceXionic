@@ -1,28 +1,38 @@
 page-launch-list {
 
   ion-card {
-    position: relative;
     text-align: center;
   }
 
   .card-title {
-    position: absolute;
-    top: 26%;
-    font-size: 2.0em;
-    width: 100%;
+    font-size: 2.2em;
     font-weight: bold;
     color: #fff;
   }
 
   .card-subtitle {
-    font-size: 1.0em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
+    font-size: 1.2em;
     color: #fff;
   }
 
-  .launch-img {
-    height: 150px;
+  #title-container {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform : translateY(-50%);
   }
+
+  #img-launch-container {
+    position: relative;
+  }
+
+  #opacity-launch {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.6;
+  }
+
 }

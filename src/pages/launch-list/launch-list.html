@@ -15,27 +15,29 @@
 
 
 <ion-content class="card-background-page">
-  <ion-card *ngIf="nextLaunch">
-    <img src="assets/imgs/nextLaunch.jpg" class="launch-img"/>
-    <ion-card-content>
-      <ion-card-title>
-          {{timeForNextLaunch}}
-      </ion-card-title>
-
-      <ion-row>
-        <ion-col col-8>
-          <h2>Mission name : {{nextLaunch.mission_name}}</h2>
-        </ion-col>
-        <ion-col col-4 text-wrap>
-          <ion-badge item-end>
-            {{nextLaunch.rocket.rocket_name}}
-          </ion-badge>
-
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
+  <ion-card *ngIf="nextLaunch" id="card-launch">
+    <div id="img-launch-container">
+      <div id="opacity-launch"></div>
+      <img src="assets/imgs/nextLaunch.jpg"/>
+      <div id="title-container">
+        <div class="card-title">Next Launch</div>
+        <div class="card-subtitle">{{timeForNextLaunch}}</div>
+      </div>
+    </div>
+    <ion-row>
+      <ion-col col-8>
+        <h2>Mission name : {{nextLaunch.mission_name}}</h2>
+      </ion-col>
+      <ion-col col-4 text-wrap>
+        <ion-badge item-end>
+          {{nextLaunch.rocket.rocket_name}}
+        </ion-badge>
+      </ion-col>
+    </ion-row>
   </ion-card>
-
+  
+  <div id="space"></div>
+  
   <ion-segment [(ngModel)]="segmentChoice">
     <ion-segment-button value="past-launches">
       Past launches
@@ -45,7 +47,7 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
+  <div id="lala" [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
     <ion-list *ngSwitchCase="'past-launches'">
       <button ion-item *ngFor="let launch of pastLaunches" (click)="goToLaunchDetail(launch)">
         <ion-avatar item-start>
