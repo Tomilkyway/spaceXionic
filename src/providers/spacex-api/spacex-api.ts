@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {ILaunch} from "../../models/ILaunch";
 import { IRocket } from '../../models/IRocket';
+import { ILaunchSite } from '../../models/ILaunchSite';
 
 /*
   Generated class for the SpacexApiProvider provider.
