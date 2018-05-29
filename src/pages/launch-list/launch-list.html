@@ -6,9 +6,6 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      HomePage
-    </ion-title>
     <ion-card *ngIf="nextLaunch" id="card-launch">
       <div id="img-launch-container">
         <div id="opacity-launch"></div>
@@ -53,9 +50,9 @@
 
 <ion-content class="card-background-page">
 
-  <div id="space"></div>
+  <div id="space-card"></div>
 
-  <ion-segment [(ngModel)]="segmentChoice" id="segment-choice-launches">
+  <ion-segment id="segment-choice-launches" [(ngModel)]="segmentChoice">
     <ion-segment-button value="past-launches">
       Past launches
     </ion-segment-button>
@@ -63,8 +60,6 @@
       Next launches
     </ion-segment-button>
   </ion-segment>
-
-  <div id="space-segment-choice"></div>
 
   <div id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
     <ion-list *ngSwitchCase="'past-launches'">
