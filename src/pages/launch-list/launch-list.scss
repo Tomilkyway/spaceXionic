@@ -60,20 +60,19 @@ page-launch-list {
   #segment-choice-launches {
     /*position: fixed !important;*/
     position: relative;
+    padding: 0px !important
     /*height: 40px;
     top: 46.5%;
-    */padding: 10px !important;/*
+    padding: 10px !important;
     z-index: 2;
     background: #fff;*/
   }
 
-  #space-card {
-    width: 100%;
-    height: 44%;
-  }
-
   #list-launches {
-    position: relative;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    transform : translateY(-0%);
   }
 
 }
