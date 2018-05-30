@@ -43,23 +43,21 @@
           </ion-badge>
         </div>
       </div>
+      <div id="seg-choice">
+        <ion-segment id="segment-choice-launches" [(ngModel)]="segmentChoice">
+          <ion-segment-button value="past-launches">
+            Past launches
+          </ion-segment-button>
+          <ion-segment-button value="next-launches">
+            Next launches
+          </ion-segment-button>
+        </ion-segment>
+      </div>
     </ion-card>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content class="card-background-page">
-
-  <div id="space-card"></div>
-
-  <ion-segment id="segment-choice-launches" [(ngModel)]="segmentChoice">
-    <ion-segment-button value="past-launches">
-      Past launches
-    </ion-segment-button>
-    <ion-segment-button value="next-launches">
-      Next launches
-    </ion-segment-button>
-  </ion-segment>
 
   <div id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
     <ion-list *ngSwitchCase="'past-launches'">
