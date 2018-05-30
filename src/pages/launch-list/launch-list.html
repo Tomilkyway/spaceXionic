@@ -4,83 +4,82 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.-->
 
-<ion-header>
-  <ion-navbar>
-    <ion-card *ngIf="nextLaunch" id="card-launch">
-      <div id="img-launch-container">
-        <div id="opacity-launch"></div>
-        <img src="assets/imgs/nextLaunch.jpg"/>
-        <div id="title-container">
-          <div class="card-title">Next Launch</div>
-          <div class="card-subtitle">{{timeForNextLaunch}}</div>
+  <ion-header>
+    <ion-navbar>
+      <ion-card *ngIf="nextLaunch" id="card-launch">
+        <div id="img-launch-container">
+          <div id="opacity-launch"></div>
+          <img src="assets/imgs/nextLaunch.jpg"/>
+          <div id="title-container">
+            <div class="card-title">Next Launch</div>
+            <div class="card-subtitle">{{timeForNextLaunch}}</div>
+          </div>
+          <div id="content-container">
+            <ion-row>
+              <ion-col col-8>
+                <h2 class="white small-text"><b>MISSION NAME :</b> {{nextLaunch.mission_name}}</h2>
+              </ion-col>
+              <ion-col col-4 text-wrap>
+                <ion-badge item-end color="primary">
+                  Flight n°{{nextLaunch.flight_number}}
+                </ion-badge>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-8>
+                <h2 class="white small-text"><b>LAUNCH SITE :</b> {{nextLaunch.launch_site.site_name}}</h2>
+              </ion-col>
+              <ion-col col-4 text-wrap>
+                <ion-badge item-end color="secondary">
+                  {{nextLaunch.rocket.rocket_name}}
+                </ion-badge>
+              </ion-col>
+            </ion-row>
+          </div>
+          <div id="video-container">
+            <ion-badge color="danger">
+              <ion-icon name="radio-button-on"></ion-icon>
+              LIVE
+            </ion-badge>
+          </div>
         </div>
-        <div id="content-container">
-          <ion-row>
-            <ion-col col-8>
-              <h2 class="white small-text"><b>MISSION NAME :</b> {{nextLaunch.mission_name}}</h2>
-            </ion-col>
-            <ion-col col-4 text-wrap>
-              <ion-badge item-end color="primary">
-                Flight n°{{nextLaunch.flight_number}}
-              </ion-badge>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-8>
-              <h2 class="white small-text"><b>LAUNCH SITE :</b> {{nextLaunch.launch_site.site_name}}</h2>
-            </ion-col>
-            <ion-col col-4 text-wrap>
-              <ion-badge item-end color="secondary">
-                {{nextLaunch.rocket.rocket_name}}
-              </ion-badge>
-            </ion-col>
-          </ion-row>
+        <div id="seg-choice">
+          <ion-segment id="segment-choice-launches" [(ngModel)]="segmentChoice">
+            <ion-segment-button value="past-launches">
+              Past launches
+            </ion-segment-button>
+            <ion-segment-button value="next-launches">
+              Next launches
+            </ion-segment-button>
+          </ion-segment>
         </div>
-        <div id="video-container">
-          <ion-badge color="danger">
-            <ion-icon name="radio-button-on"></ion-icon>
-            LIVE
-          </ion-badge>
-        </div>
-      </div>
-    </ion-card>
-  </ion-navbar>
-</ion-header>
-
-
-<ion-content class="card-background-page">
-
-  <div id="space-card"></div>
-
-  <ion-segment id="segment-choice-launches" [(ngModel)]="segmentChoice">
-    <ion-segment-button value="past-launches">
-      Past launches
-    </ion-segment-button>
-    <ion-segment-button value="next-launches">
-      Next launches
-    </ion-segment-button>
-  </ion-segment>
-
-  <div id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
-    <ion-list *ngSwitchCase="'past-launches'">
-      <button ion-item *ngFor="let launch of pastLaunches" (click)="goToLaunchDetail(launch)">
-        <ion-avatar item-start>
-          <img src="{{launch.links.mission_patch_small}}">
-        </ion-avatar>
-        <h2> {{launch.mission_name}}</h2>
-        <p>{{launch.details}}</p>
-      </button>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'next-launches'">
-      <button ion-item *ngFor="let launch of upcomingLaunches" (click)="goToLaunchDetail(launch)">
-        <ion-avatar item-start>
-          <img src="{{launch.links.mission_patch_small}}">
-        </ion-avatar>
-        <h2> {{launch.mission_name}}</h2>
-        <p>{{launch.details}}</p>
-      </button>
-    </ion-list>
-  </div>
-
-</ion-content>
+      </ion-card>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="card-background-page">
+  
+    <div id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
+      <ion-list *ngSwitchCase="'past-launches'">
+        <button ion-item *ngFor="let launch of pastLaunches" (click)="goToLaunchDetail(launch)">
+          <ion-avatar item-start>
+            <img src="{{launch.links.mission_patch_small}}">
+          </ion-avatar>
+          <h2> {{launch.mission_name}}</h2>
+          <p>{{launch.details}}</p>
+        </button>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'next-launches'">
+        <button ion-item *ngFor="let launch of upcomingLaunches" (click)="goToLaunchDetail(launch)">
+          <ion-avatar item-start>
+            <img src="{{launch.links.mission_patch_small}}">
+          </ion-avatar>
+          <h2> {{launch.mission_name}}</h2>
+          <p>{{launch.details}}</p>
+        </button>
+      </ion-list>
+    </div>
+  
+  </ion-content>
+  
