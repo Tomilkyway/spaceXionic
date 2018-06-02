@@ -6,6 +6,13 @@
 
   <ion-header>
     <ion-navbar>
+      <ion-title>spaceXionic</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="card-background-page">
+
+    <div id="card-homepage">
       <ion-card *ngIf="nextLaunch" id="card-launch">
         <div id="img-launch-container">
           <div id="opacity-launch"></div>
@@ -38,7 +45,9 @@
           </div>
           <div id="video-container">
             <ion-badge color="danger">
-              <ion-icon name="radio-button-on"></ion-icon>
+              <ion-icon>
+                <img src="assets/imgs/rec.png" class="icon-spacex">
+              </ion-icon>
               LIVE
             </ion-badge>
           </div>
@@ -54,10 +63,10 @@
           </ion-segment>
         </div>
       </ion-card>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content class="card-background-page">
+    </div>
+
+    <div id="space"></div>
+    
   
     <div id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
       <ion-list *ngSwitchCase="'past-launches'">
@@ -67,6 +76,8 @@
           </ion-avatar>
           <h2> {{launch.mission_name}}</h2>
           <p>{{launch.details}}</p>
+          <ion-badge color="secondary" *ngIf="launch.launch_success">Success</ion-badge>
+          <ion-badge color="danger" *ngIf="launch.launch_success == false">Fail</ion-badge>
         </button>
       </ion-list>
   
