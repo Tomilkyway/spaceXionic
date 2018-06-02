@@ -74,4 +74,18 @@ page-launch-list {
     font-size: 0.9em;
   }
 
+  .icon-spacex {
+    background-repeat:no-repeat;
+    background-position:center;
+    height:9px;
+    width:9px;
+    background-size:contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    &:before {
+        display:none;
+    }
+  }
+
 }
