@@ -6,6 +6,13 @@
 
   <ion-header>
     <ion-navbar>
+      <ion-title>spaceXionic</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="card-background-page">
+
+    <div id="card-homepage">
       <ion-card *ngIf="nextLaunch" id="card-launch">
         <div id="img-launch-container">
           <div id="opacity-launch"></div>
@@ -54,10 +61,10 @@
           </ion-segment>
         </div>
       </ion-card>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content class="card-background-page">
+    </div>
+
+    <div id="space"></div>
+    
   
     <div id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches">
       <ion-list *ngSwitchCase="'past-launches'">

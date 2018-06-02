@@ -4,6 +4,13 @@ page-launch-list {
     text-align: center;
   }
 
+  #card-homepage {
+    position: fixed !important;
+    width: 100%;
+    z-index: 1;
+    background: #fff;
+  }
+
   .card-title {
     font-size: 2.2em;
     font-weight: bold;
@@ -49,30 +56,22 @@ page-launch-list {
     opacity: 0.5;
   }
 
+  #segment-choice-launches {
+    padding: 10px;
+  }
+
+  #space {
+    position: relative;
+    width: 100%;
+    height: 63%;
+  }
+
   .white {
     color: #fff !important;
   }
 
   .small-text {
     font-size: 0.9em;
-  }
-
-  #segment-choice-launches {
-    /*position: fixed !important;*/
-    position: relative;
-    padding: 0px !important
-    /*height: 40px;
-    top: 46.5%;
-    padding: 10px !important;
-    z-index: 2;
-    background: #fff;*/
-  }
-
-  #list-launches {
-    position: absolute;
-    top: 0%;
-    width: 100%;
-    transform : translateY(-0%);
   }
 
 }
