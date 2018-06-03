@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { IRocket } from '../../models/IRocket';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import {RocketDetailPage} from "../rocket-detail/rocket-detail";
+import { IRocket } from '../../models/rocket/IRocket';
 
 /**
  * Generated class for the RocketListPage page.

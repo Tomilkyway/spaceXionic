@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {ILaunch} from "../../models/ILaunch";
 import {RocketDetailPage} from "../rocket-detail/rocket-detail";
+import { ILaunches } from '../../models/launches/ILaunches';
 
 /**
  * Generated class for the LaunchDetailPage page.
@@ -17,7 +17,7 @@ import {RocketDetailPage} from "../rocket-detail/rocket-detail";
 })
 export class LaunchDetailPage {
 
-  launch : ILaunch;
+  launch : ILaunches;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.launch = this.navParams.data;
