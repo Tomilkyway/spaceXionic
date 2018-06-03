@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {IRocket} from "../../models/IRocket";
+import { IRocket } from '../../models/rocket/IRocket';
 
 /**
  * Generated class for the RocketDetailPage page.

@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {ILaunch} from "../../models/ILaunch";
-import { IRocket } from '../../models/IRocket';
-import { ILaunchSite } from '../../models/ILaunchSite';
+import { ILaunches } from '../../models/launches/ILaunches';
+import { IRocket } from '../../models/rocket/IRocket';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -19,27 +18,30 @@ export class SpacexApiProvider {
   constructor(private http: HttpClient) {
   }
 
-  getAllLaunches(): Observable<ILaunch[]>{
+  getAllLaunches(): Observable<ILaunches[]>{
     const endpointUrl = `${this.baseUrl}/launches/all`
-    return this.http.get<ILaunch[]>(endpointUrl);
+    return this.http.get<ILaunches[]>(endpointUrl);
+  }
+
+  getPastLaunches(): Observable<ILaunches[]>{
+    const endpointUrl = `${this.baseUrl}/launches`
+    return this.http.get<ILaunches[]>(endpointUrl);
+  }
+
+  getUpcomingLaunches(): Observable<ILaunches[]>{
+    const endpointUrl = `${this.baseUrl}/launches/upcoming`
+    return this.http.get<ILaunches[]>(endpointUrl);
+  }
+
+  getNextLaunch(): Observable<ILaunches>{
+    const endpointUrl = `${this.baseUrl}/launches/next`
+    return this.http.get<ILaunches>(endpointUrl);
   }
 
   getAllRockets(): Observable<IRocket[]>{
     const endpointUrl = `${this.baseUrl}/rockets`
     return this.http.get<IRocket[]>(endpointUrl);
   }
-  getPastLaunches(): Observable<ILaunch[]>{
-    const endpointUrl = `${this.baseUrl}/launches`
-    return this.http.get<ILaunch[]>(endpointUrl);
-  }
 
-  getUpcomingLaunches(): Observable<ILaunch[]>{
-    const endpointUrl = `${this.baseUrl}/launches/upcoming`
-    return this.http.get<ILaunch[]>(endpointUrl);
-  }
-
-  getNextLaunch(): Observable<ILaunch>{
-    const endpointUrl = `${this.baseUrl}/launches/next`
-    return this.http.get<ILaunch>(endpointUrl);
-  }
+  
 }
