@@ -16,7 +16,7 @@
       <ion-card *ngIf="nextLaunch" style="flex: 0 0 auto;">
         <div id="img-launch-container">
           <div id="opacity-launch"></div>
-          <img src="assets/imgs/nextLaunch.jpg"/>
+          <img src="assets/imgs/launch2.jpg"/>
           <div id="title-container">
             <div class="card-title">Next Launch</div>
             <div class="card-subtitle">{{timeForNextLaunch}}</div>
@@ -64,29 +64,27 @@
         </div>
       </ion-card>
 
-      <div  id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches" style="flex: 1;">
+      <div id="list-launches" [ngSwitch]="segmentChoice" *ngIf="pastLaunches" style="flex: 1;">
         <ion-scroll style="width:100%;height:100%" scrollY="true" *ngSwitchCase="'past-launches'">
-          <ion-list >
-            <button ion-item *ngFor="let launch of pastLaunches" (click)="goToLaunchDetail(launch)">
+          <ion-list>
+            <button ion-item detail-none *ngFor="let launch of pastLaunches" (click)="goToLaunchDetail(launch)">
               <ion-avatar item-start>
                 <img src="{{launch.links.mission_patch_small}}">
               </ion-avatar>
-              <h2> {{launch.mission_name}}</h2>
-              <p>{{launch.details}}</p>
-              <ion-badge color="secondary" *ngIf="launch.launch_success">Success</ion-badge>
-              <ion-badge color="danger" *ngIf="launch.launch_success == false">Fail</ion-badge>
+              <ion-badge color="secondary" name="rounded" *ngIf="launch.launch_success" float-end>Succeeded</ion-badge>
+              <ion-badge color="danger" name="rounded" *ngIf="launch.launch_success == false" float-end>Failed</ion-badge>
+              <h2>{{launch.mission_name}}</h2>
             </button>
           </ion-list>
         </ion-scroll>
 
         <ion-scroll style="width:100%;height:100%" scrollY="true" *ngSwitchCase="'next-launches'">
           <ion-list>
-            <button ion-item *ngFor="let launch of upcomingLaunches" (click)="goToLaunchDetail(launch)">
+            <button ion-item detail-none *ngFor="let launch of upcomingLaunches" (click)="goToLaunchDetail(launch)">
               <ion-avatar item-start>
-                <img src="{{launch.links.mission_patch_small}}">
+                <img src="assets/imgs/spacex.jpg">
               </ion-avatar>
-              <h2> {{launch.mission_name}}</h2>
-              <p>{{launch.details}}</p>
+              <h2>{{launch.mission_name}}</h2>
             </button>
           </ion-list>
         </ion-scroll>
