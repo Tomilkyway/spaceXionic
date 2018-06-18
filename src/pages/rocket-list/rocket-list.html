@@ -13,11 +13,49 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list >
-    <button ion-item *ngFor="let rocket of rockets" (click)="goToRocketDetail(rocket)">
+  <ion-card style="box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px !important;" *ngFor="let rocket of rockets" (click)="goToRocketDetail(rocket)">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/launch.jpeg">
+      </ion-avatar>
+      <ion-badge color="secondary" name="rounded" *ngIf="rocket.active" float-end>Active</ion-badge>
+      <ion-badge color="danger" name="rounded" *ngIf="rocket.active == false" float-end>Inactive</ion-badge>
       <h2>{{rocket.name}}</h2>
-      <p>{{rocket.type}}</p>
-      <p>{{rocket.id}}</p>
-    </button>
-  </ion-list>
+      <p>{{rocket.type}}</p>      
+    </ion-item>
+    
+    <img src="assets/imgs/spacex.jpg">
+
+    <div class="separator"></div>
+    
+    <ion-card-content>
+      <p class="blue-color" style="text-align: justify;font-size: 13px;">{{rocket.description}}</p>
+    </ion-card-content>
+
+    <div class="separator"></div>
+    
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center>
+          <div class="font-bold">Height</div>
+          <div class="blue-color">{{ rocket.height.meters }} m</div>
+        </ion-col>
+        <ion-col text-center>
+          <div class="font-bold">Diameter</div>
+          <div class="blue-color">{{ rocket.diameter.meters }} m</div>
+        </ion-col>
+        <ion-col text-center>
+          <div class="font-bold">Mass</div>
+          <div class="blue-color">{{ rocket.mass.kg }} kg</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>
+
+
+
+
+    
+
+  

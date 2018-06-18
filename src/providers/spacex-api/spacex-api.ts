@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import { ILaunches } from '../../models/launches/ILaunches';
 import { IRocket } from '../../models/rocket/IRocket';
+import { ICapsule } from '../../models/capsule/ICapsule';
+import { ILaunchPads } from '../../models/launchpads/ILaunchPads';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -41,6 +43,16 @@ export class SpacexApiProvider {
   getAllRockets(): Observable<IRocket[]>{
     const endpointUrl = `${this.baseUrl}/rockets`
     return this.http.get<IRocket[]>(endpointUrl);
+  }
+
+  getAllCapsules(): Observable<ICapsule[]>{
+    const endpointUrl = `${this.baseUrl}/capsules`
+    return this.http.get<ICapsule[]>(endpointUrl);
+  }
+
+  getAllLaunchPads(): Observable<ILaunchPads[]>{
+    const endpointUrl = `${this.baseUrl}/launchpads`
+    return this.http.get<ILaunchPads[]>(endpointUrl);
   }
 
   

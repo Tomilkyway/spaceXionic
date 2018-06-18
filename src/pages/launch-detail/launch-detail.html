@@ -14,25 +14,44 @@
 
 
 <ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-row>
+        <ion-col col-12>
+          <h1 style="text-align: center;"> {{launch.mission_name}} </h1>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+      
+    <ion-row>
+      <ion-col col-12>
+        <div class="separator"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 offset-3>
+        <img src="{{launch.links.mission_patch}}">
+      </ion-col>
+    </ion-row>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-12>
+          <p style="text-align: justify;">{{launch.details}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
   <ion-row>
-    <ion-col col-5>
-      <img src="{{launch.links.mission_patch}}">
-    </ion-col>
-    <ion-col col-7 text-wrap>
-      <h1> {{launch.mission_name}} </h1>
-
-      <ion-badge item-end>
-        {{launch.rocket.rocket_name}}
-      </ion-badge>
+    <ion-col col-5 offset-7>
+      <ion-item>
+        <button ion-button item-end icon-end icon-right color="primary" round (click)="goToLaunchDetail()">
+          View more
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
     </ion-col>
   </ion-row>
 
-  <ion-row>
-    <ion-card>
-      {{launch.details}}
-    </ion-card>
-  </ion-row>
-
-  <button ion-button color="dark" round (click)="goToRocketDetail()">Rocket {{launch.rocket.rocket_name}}</button>
+  <!--<button ion-button color="dark" round (click)="goToRocketDetail()">Rocket {{launch.rocket.rocket_name}}</button>-->
 
 </ion-content>
