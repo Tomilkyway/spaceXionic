@@ -13,12 +13,12 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
+<ion-content padding style="background-image: url('assets/imgs/etoiles.jpg')">
+  <ion-card style="background-image: url('assets/imgs/etoiles.jpg'); border: 1px solid white;">
     <ion-card-header>
       <ion-row>
         <ion-col col-12>
-          <h1 style="text-align: center;"> {{launch.mission_name}} </h1>
+          <h1 style="text-align: center;color: white;"> {{launch.mission_name}} </h1>
         </ion-col>
       </ion-row>
     </ion-card-header>
@@ -30,28 +30,101 @@
     </ion-row>
     <ion-row>
       <ion-col col-6 offset-3>
-        <img src="{{launch.links.mission_patch}}">
+        <img *ngIf="launch.links.mission_patch" src="{{launch.links.mission_patch}}">
+        <img *ngIf="!launch.links.mission_patch" src="assets/imgs/spacex2.jpg">
       </ion-col>
     </ion-row>
     <ion-card-content>
       <ion-row>
-        <ion-col col-12>
-          <p style="text-align: justify;">{{launch.details}}</p>
+        <ion-col col-4 style="text-align: center;">
+          <ion-badge color="danger" style="font-size: 12px;">Flight n° {{launch.flight_number}}</ion-badge>
+        </ion-col>
+        <ion-col col-4 style="text-align: center;">
+          <ion-badge color="primary" style="font-size: 12px;">{{launch.rocket.rocket_name}}</ion-badge>
+        </ion-col>
+        <ion-col col-4 style="text-align: center;">
+          <ion-badge color="secondary" style="font-size: 10px;">{{launch.launch_site.site_name}}</ion-badge>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p style="text-align: justify;color: white !important;">{{launch.details}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <div class="separator"></div>
+        </ion-col>
+      </ion-row>
+      <ion-grid class="border-top-grey">
+        <ion-row>
+          <ion-col text-center>
+            <div class="font-bold">
+                <ion-icon name="paper" color="secondary"></ion-icon>
+            </div>
+            <div class="blue-color">
+              <a style="text-decoration: none; color: white;" href="{{launch.links.article_link}}">Article</a>
+            </div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold">
+              <ion-icon name="logo-wordpress" color="primary"></ion-icon>
+            </div>
+            <div class="blue-color">
+              <a style="text-decoration: none; color: white;" href="{{launch.links.wikipedia}}">Wikipédia</a>
+            </div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold">
+              <ion-icon name="logo-youtube" color="danger"></ion-icon>
+            </div>
+            <div class="blue-color">
+              <a style="text-decoration: none; color: white;" href="{{launch.links.video_link}}">Youtube</a>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="border-top-grey">
+        <ion-row>
+          <ion-col text-center>
+            <div class="font-bold">
+                <ion-icon name="logo-reddit" color="secondary"></ion-icon>
+            </div>
+            <div class="blue-color">
+              <a style="text-decoration: none; color: white;" href="{{launch.links.presskit}}">Presskit</a>
+            </div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold">
+              <ion-icon name="logo-reddit" color="primary"></ion-icon>
+            </div>
+            <div class="blue-color">
+              <a style="text-decoration: none; color: white;" href="{{launch.links.reddit_campaign}}">Campaign</a>
+            </div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold">
+              <ion-icon name="logo-reddit" color="danger"></ion-icon>
+            </div>
+            <div class="blue-color">
+              <a style="text-decoration: none; color: white;" href="{{launch.links.reddit_launch}}">Launch</a>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-content>
   </ion-card>
-  <ion-row>
-    <ion-col col-5 offset-7>
-      <ion-item>
-        <button ion-button item-end icon-end icon-right color="primary" round (click)="goToLaunchDetail()">
-          View more
-          <ion-icon name="arrow-forward"></ion-icon>
-        </button>
-      </ion-item>
-    </ion-col>
-  </ion-row>
 
-  <!--<button ion-button color="dark" round (click)="goToRocketDetail()">Rocket {{launch.rocket.rocket_name}}</button>-->
 
 </ion-content>
+
+<!-- mission_patch?: string;
+    mission_patch_small?: string;
+    article_link?: string;
+    wikipedia?: string;
+    video_link?: string;
+    presskit?: string;
+    reddit_campaign?: string;
+    reddit_launch?: string;
+    reddit_recovery?: string;
+    reddit_media?: string; -->
