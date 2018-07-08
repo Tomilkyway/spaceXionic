@@ -31,8 +31,8 @@ export class RocketListPage {
     console.log('ionViewDidLoad LaunchListPage');
   }
 
-  goToRocketDetail(rocket){
-    this.navCtrl.push(RocketDetailPage, rocket);
+  goToRocketDetail(rocket : IRocket){
+    this.navCtrl.push(RocketDetailPage, rocket.id);
   }
 
 }

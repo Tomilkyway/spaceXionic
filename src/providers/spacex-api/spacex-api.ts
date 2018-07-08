@@ -5,6 +5,7 @@ import { ILaunches } from '../../models/launches/ILaunches';
 import { IRocket } from '../../models/rocket/IRocket';
 import { ICapsule } from '../../models/capsule/ICapsule';
 import { ILaunchPads } from '../../models/launchpads/ILaunchPads';
+import { IHistory } from '../../models/history/IHistory';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -53,6 +54,16 @@ export class SpacexApiProvider {
   getAllLaunchPads(): Observable<ILaunchPads[]>{
     const endpointUrl = `${this.baseUrl}/launchpads`
     return this.http.get<ILaunchPads[]>(endpointUrl);
+  }
+
+  getHistory(): Observable<IHistory> {
+    const endpointUrl = `${this.baseUrl}/info`
+    return this.http.get<IHistory>(endpointUrl);
+  }
+
+  getRocket(id: String): Observable<IRocket> {
+    const endpointUrl = `${this.baseUrl}/rocket` + id
+    return this.http.get<IRocket>(endpointUrl);
   }
 
   
