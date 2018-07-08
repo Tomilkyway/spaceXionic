@@ -1,3 +1,58 @@
 page-launchpad-list {
 
+    ion-card {
+        text-align: center;
+    }
+
+    #img-launchpad-container {
+        position: relative;
+    }
+
+    .opacity-launchpad{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        opacity: 0.35;
+    }
+
+    #title-launchpad-container {
+        position: absolute;
+        top: 43%;
+        width: 100%;
+        transform : translateY(-20%);
+    }
+
+    #badge-launchpad-container {
+        position: absolute;
+        top: 61%;
+        width: 100%;
+        transform : translateY(-20%);
+    }
+
+    #card-launchpad-title {
+        font-size: 1em;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .status-launchpad::first-letter {
+        text-transform: uppercase;
+    }
+
+    .font-bold {
+        font-weight: bold;
+    }
+
+    .blue-color {
+        color: #516790;
+    }
+
+    .separator {
+        width: 100%;
+        height: 1px;
+        background: white;
+    }
+
 }

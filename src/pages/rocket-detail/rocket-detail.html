@@ -7,14 +7,50 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title *ngIf="rocket.rocket_name">{{rocket.rocket_name}}</ion-title>
+    <ion-title *ngIf="rocket">{{rocket.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style="background-image: url('assets/imgs/etoiles.jpg');">
+  <div *ngIf="rocket">
+    <ion-card style="margin-bottom: 30px;border-radius: 7px;box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px !important;background-image: url('assets/imgs/etoiles.jpg');border: solid 1px white;">
+      <ion-item style="background-image: url('assets/imgs/etoiles.jpg');">
+        <ion-avatar item-start>
+          <img style="border: solid 1px white;" src="assets/imgs/spacex.jpg">
+        </ion-avatar>
+        <ion-badge color="greenpastel" name="rounded" *ngIf="rocket.active" style="color:green;" float-end>Active</ion-badge>
+        <ion-badge color="redpastel" name="rounded" *ngIf="rocket.active == false" style="color:red;" float-end>Inactive</ion-badge>
+        <h2 style="color: white;">{{rocket.name}}</h2>
+      </ion-item>
+      
+      <img src="assets/imgs/rocket1.jpg">
 
-  {{rocket | json}}
+      <div class="separator"></div>
+      
+      <ion-card-content>
+        <p class="blue-color" style="text-align: justify;font-size: 13px;color: white;">{{rocket.description}}</p>
+      </ion-card-content>
 
+      <div class="separator"></div>
+      
+      <ion-grid class="border-top-grey">
+        <ion-row>
+          <ion-col text-center>
+            <div class="font-bold blue-color">Height</div>
+            <div style="font-size: 13px;color: white;">{{ rocket.height.meters }} m</div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold blue-color">Diameter</div>
+            <div style="font-size: 13px;color: white;">{{ rocket.diameter.meters }} m</div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold blue-color">Mass</div>
+            <div style="font-size: 13px;color: white;">{{ rocket.mass.kg }} kg</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
 </ion-content>

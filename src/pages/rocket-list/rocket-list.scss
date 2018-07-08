@@ -1,5 +1,49 @@
 page-rocket-list {
 
+    ion-card {
+        text-align: center;
+    }
+
+    #img-rocket-container {
+        position: relative;
+    }
+
+    .opacity-rocket{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        opacity: 0.5;
+    }
+
+    #card-rocket-title {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    #img-container {
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        transform : translateY(-20%);
+    }
+
+    #title-container {
+        position: absolute;
+        top: 44%;
+        width: 100%;
+        transform : translateY(-20%);
+    }
+
+    #badge-container {
+        position: absolute;
+        top: 60%;
+        width: 100%;
+        transform : translateY(-20%);
+    }
+
     .font-bold {
         font-weight: bold;
     }
@@ -11,7 +55,7 @@ page-rocket-list {
     .separator {
         width: 100%;
         height: 1px;
-        background: rgb(179, 179, 179);
+        background: white;
     }
 
 }

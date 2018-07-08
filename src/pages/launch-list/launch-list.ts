@@ -21,6 +21,7 @@ export class LaunchListPage {
   pastLaunches : ILaunches[];
   upcomingLaunches : ILaunches[];
   nextLaunch : ILaunches;
+  refreshLaunches : ILaunches[];
   //Default segment select
   segmentChoice = "past-launches";
 

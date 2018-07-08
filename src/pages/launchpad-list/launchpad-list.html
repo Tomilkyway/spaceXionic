@@ -7,17 +7,55 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Launchpad-List
+      Launchpads
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list >
-    <button ion-item *ngFor="let launchpad of launchpads">
-      <h2>{{launchpad.full_name}}</h2>
-      <p>{{launchpad.id}}</p>
-      <p>{{launchpad.status}}</p>
-    </button>
-  </ion-list>
+<ion-content padding style="background-image: url('assets/imgs/etoiles.jpg');">
+  <ion-card style="margin-bottom: 50px;border-radius: 7px;box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px !important;background-image: url('assets/imgs/etoiles.jpg');border: solid 1px white;" *ngFor="let launchpad of launchpads" (click)="goToLaunchpadDetail(launchpad)">
+    <ion-item style="background-image: url('assets/imgs/etoiles.jpg');">
+      <ion-avatar item-start>
+        <img style="border: solid 1px white;" src="assets/imgs/spacex.jpg">
+      </ion-avatar>
+      <h2 class="blue-color" style="font-size: 13px;"><b>Location :</b> <i style="color: white;">{{launchpad.location.name}}</i></h2>
+      <h2 class="blue-color" style="font-size: 13px;"><b>Region :</b> <i style="color: white;">{{launchpad.location.region}}</i></h2>
+    </ion-item>
+
+    <div id="img-launchpad-container" style="border: 2px solid white;">
+      <div class="opacity-launchpad"></div>
+      <img src="assets/imgs/launchpad1.jpg">
+      <div id="title-launchpad-container">
+          <div id="card-launchpad-title" style="text-transform: uppercase;">{{launchpad.full_name}}</div>
+      </div>
+      <div id="badge-launchpad-container">
+        <ion-badge color="bluepastel" name="rounded" class="status-launchpad" style="color:blue;">{{launchpad.status}}</ion-badge>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+    
+    <ion-card-content>
+      <p class="blue-color" style="text-align: justify;font-size: 13px;color: white;">{{launchpad.details}}</p>
+    </ion-card-content>
+
+    <div class="separator"></div>
+    
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center>
+          <div class="font-bold blue-color">Vehicles</div>
+          <div style="font-size: 13px;color: white;">{{ launchpad.vehicles_launched }}</div>
+        </ion-col>
+        <ion-col text-center>
+          <div class="font-bold blue-color">Latitude</div>
+          <div style="font-size: 13px;color: white;">{{ launchpad.location.latitude }}°</div>
+        </ion-col>
+        <ion-col text-center>
+          <div class="font-bold blue-color">Longitude</div>
+          <div style="font-size: 13px;color: white;">{{ launchpad.location.longitude }}°</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

@@ -13,43 +13,25 @@
 </ion-header>
 
 <ion-content padding style="background-image: url('assets/imgs/etoiles.jpg');">
-  <ion-card style="box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px !important;background-image: url('assets/imgs/etoiles.jpg');border: solid 1px white;" *ngFor="let rocket of rockets" (click)="goToRocketDetail(rocket)">
-    <ion-item style="background-image: url('assets/imgs/etoiles.jpg');">
-      <ion-avatar item-start>
-        <img style="border: solid 1px white;" src="assets/imgs/launch.jpeg">
-      </ion-avatar>
-      <ion-badge color="secondary" name="rounded" *ngIf="rocket.active" float-end>Active</ion-badge>
-      <ion-badge color="danger" name="rounded" *ngIf="rocket.active == false" float-end>Inactive</ion-badge>
-      <h2 style="color: white;">{{rocket.name}}</h2>
-      <!-- <p>{{rocket.type}}</p>       -->
-    </ion-item>
-    
-    <img src="assets/imgs/spacex.jpg">
-
-    <div class="separator"></div>
-    
-    <ion-card-content>
-      <p class="blue-color" style="text-align: justify;font-size: 13px;color: white;">{{rocket.description}}</p>
-    </ion-card-content>
-
-    <div class="separator"></div>
-    
-    <ion-grid class="border-top-grey">
-      <ion-row>
-        <ion-col text-center>
-          <div class="font-bold blue-color">Height</div>
-          <div style="font-size: 13px;color: white;">{{ rocket.height.meters }} m</div>
-        </ion-col>
-        <ion-col text-center>
-          <div class="font-bold blue-color">Diameter</div>
-          <div style="font-size: 13px;color: white;">{{ rocket.diameter.meters }} m</div>
-        </ion-col>
-        <ion-col text-center>
-          <div class="font-bold blue-color">Mass</div>
-          <div style="font-size: 13px;color: white;">{{ rocket.mass.kg }} kg</div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <ion-card style="margin-bottom: 30px;box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px !important;background-image: url('assets/imgs/etoiles.jpg');border: solid 1px white;" *ngFor="let rocket of rockets" (click)="goToRocketDetail(rocket)">
+    <div id="img-rocket-container" style="border: 1px solid white;">
+      <div class="opacity-rocket"></div>
+      <img src="assets/imgs/rocket1.jpg">
+      <div id="img-container">
+        <ion-item style="background: transparent;">
+          <ion-avatar item-start>
+            <img style="border: solid 1px white;" src="assets/imgs/spacex.jpg">
+          </ion-avatar>
+        </ion-item>
+      </div>
+      <div id="title-container">
+          <div id="card-rocket-title" style="text-transform: uppercase;">{{rocket.name}}</div>
+      </div>
+      <div id="badge-container">
+        <ion-badge color="greenpastel" name="rounded" *ngIf="rocket.active" style="color:green;">Active</ion-badge>
+        <ion-badge color="redpastel" name="rounded" *ngIf="rocket.active == false" style="color:red;">Inactive</ion-badge>
+      </div>
+    </div>
   </ion-card>
 </ion-content>
 

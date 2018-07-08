@@ -44,7 +44,11 @@
             </ion-row>
           </div>
           <div id="video-container">
-            <button *ngIf="nextLaunch.links.video_link" color="danger" ion-button small icon-end>LIVE<ion-icon name="logo-youtube"></ion-icon></button>
+            <a *ngIf="nextLaunch.links.video_link" href="{{nextLaunch.links.video_link}}">
+              <button *ngIf="nextLaunch.links.video_link" color="danger" ion-button small icon-end>
+                LIVE<ion-icon name="logo-youtube"></ion-icon>
+              </button>
+            </a>
             <button *ngIf="!nextLaunch.links.video_link" color="black" ion-button small icon-end>PAS DE LIVE</button>
           </div>
         </div>

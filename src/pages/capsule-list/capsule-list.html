@@ -7,16 +7,30 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Capsule-List
+      Capsules
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list >
-    <button ion-item *ngFor="let capsule of capsules">
-      <h2>{{capsule.name}}</h2>
-      <p>{{capsule.type}}</p>
-    </button>
-  </ion-list>
+<ion-content padding style="background-image: url('assets/imgs/etoiles.jpg');">
+  <ion-card style="margin-bottom: 30px;box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px !important;background-image: url('assets/imgs/etoiles.jpg');border: solid 1px white;" *ngFor="let capsule of capsules" (click)="goToCapsuleDetail(capsule)">
+    <div id="img-capsule-container" style="border: 1px solid white;">
+      <div class="opacity-capsule"></div>
+      <img src="assets/imgs/capsule.jpg">
+      <div id="img-container">
+        <ion-item style="background: transparent;">
+          <ion-avatar item-start>
+            <img style="border: solid 1px white;" src="assets/imgs/spacex.jpg">
+          </ion-avatar>
+        </ion-item>
+      </div>
+      <div id="title-container">
+          <div id="card-capsule-title" style="text-transform: uppercase;">{{capsule.name}}</div>
+      </div>
+      <div id="badge-container">
+        <ion-badge color="greenpastel" name="rounded" *ngIf="capsule.active" style="color:green;">Active</ion-badge>
+        <ion-badge color="redpastel" name="rounded" *ngIf="capsule.active == false" style="color:red;">Inactive</ion-badge>
+      </div>
+    </div>
+  </ion-card>
 </ion-content>
