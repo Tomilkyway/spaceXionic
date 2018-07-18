@@ -30,8 +30,8 @@ export class LaunchpadListPage {
     console.log('ionViewDidLoad LaunchpadListPage');
   }
 
-  goToLaunchpadDetail(launchpad){
-    this.navCtrl.push(LaunchpadDetailPage, launchpad);
+  goToLaunchpadDetail(launchpad : ILaunchPads){
+    this.navCtrl.push(LaunchpadDetailPage, launchpad.id);
   }
 
 }

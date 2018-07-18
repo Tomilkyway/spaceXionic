@@ -23,7 +23,7 @@
           </div>
           <div id="content-container">
             <ion-row>
-              <ion-col col-8>
+              <ion-col col-8 (click)="goToLaunchDetail(nextLaunch)">
                 <h2 class="white small-text"><b>MISSION NAME :</b> {{nextLaunch.mission_name}}</h2>
               </ion-col>
               <ion-col col-4 text-wrap>
@@ -33,11 +33,11 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col col-8>
+              <ion-col col-8 (click)="goToLaunchpadDetail(nextLaunch.launch_site)">
                 <h2 class="white small-text"><b>LAUNCH SITE :</b> {{nextLaunch.launch_site.site_name}}</h2>
               </ion-col>
               <ion-col col-4 text-wrap>
-                <ion-badge item-end color="secondary">
+                <ion-badge item-end color="secondary" (click)="goToRocketDetail(nextLaunch.rocket)">
                   {{nextLaunch.rocket.rocket_name}}
                 </ion-badge>
               </ion-col>
@@ -52,6 +52,14 @@
             <button *ngIf="!nextLaunch.links.video_link" color="black" ion-button small icon-end>PAS DE LIVE</button>
           </div>
         </div>
+
+        <ion-searchbar style="background-image: url('assets/imgs/etoiles.jpg');"
+          [(ngModel)]="searchQuery"
+          [showCancelButton]="shouldShowCancel"
+          (ionInput)="onInput($event)"
+          (ionCancel)="onCancel($event)">
+        </ion-searchbar>
+
         <div id="seg-choice" style="background-image: url('assets/imgs/etoiles.jpg')">
           <ion-segment id="segment-choice-launches" [(ngModel)]="segmentChoice">
             <ion-segment-button value="past-launches">

@@ -13,8 +13,79 @@
 </ion-header>
 
 
-<ion-content padding>
-
-  {{history | json}}
-
+<ion-content padding style="background-image: url('assets/imgs/etoiles.jpg');">
+  <div *ngIf="history">
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Name</div>
+          <div style="font-size: 13px;color: white;">{{history.name}}</div>
+        </ion-col>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Founder</div>
+          <div style="font-size: 13px;color: white;">{{history.founder}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Founded</div>
+          <div style="font-size: 13px;color: white;">{{history.founded}}</div>
+        </ion-col>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Eployees</div>
+          <div style="font-size: 13px;color: white;">{{history.employees}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Vehicles</div>
+          <div style="font-size: 13px;color: white;">{{history.vehicles}}</div>
+        </ion-col>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Launch Sites</div>
+          <div style="font-size: 13px;color: white;">{{history.launch_sites}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Test Sites</div>
+          <div style="font-size: 13px;color: white;">{{history.test_sites}}</div>
+        </ion-col>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">CEO</div>
+          <div style="font-size: 13px;color: white;">{{history.ceo}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">CTO</div>
+          <div style="font-size: 13px;color: white;">{{history.cto}}</div>
+        </ion-col>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">COO</div>
+          <div style="font-size: 13px;color: white;">{{history.coo}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="border-top-grey">
+      <ion-row>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">CTO propulsion</div>
+          <div style="font-size: 13px;color: white;">{{history.cto_propulsion}}</div>
+        </ion-col>
+        <ion-col text-center col-6>
+          <div class="font-bold blue-color">Valuation</div>
+          <div style="font-size: 13px;color: white;">{{history.valuation}}</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

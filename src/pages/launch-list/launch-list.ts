@@ -3,6 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {SpacexApiProvider} from "../../providers/spacex-api/spacex-api";
 import {LaunchDetailPage} from "../launch-detail/launch-detail";
 import { ILaunches } from '../../models/launches/ILaunches';
+import { IRocketLaunches } from '../../models/launches/IRocketLaunches';
+import { RocketDetailPage } from '../rocket-detail/rocket-detail';
+import { ILaunchSiteLaunches } from '../../models/launches/ILaunchSiteLaunches';
+import { LaunchpadDetailPage } from '../launchpad-detail/launchpad-detail';
 
 /**
  * Generated class for the LaunchListPage page.
@@ -19,11 +23,15 @@ import { ILaunches } from '../../models/launches/ILaunches';
 export class LaunchListPage {
 
   pastLaunches : ILaunches[];
+  pastLaunchesInit : ILaunches[];
   upcomingLaunches : ILaunches[];
+  upcomingLaunchesInit : ILaunches[];
   nextLaunch : ILaunches;
   refreshLaunches : ILaunches[];
   //Default segment select
   segmentChoice = "past-launches";
+  searchQuery = "";
+  showCancelshouldShowCancel = false;
 
   timeForNextLaunch = "00d : 00h : 00m: 00s";
 
@@ -31,6 +39,7 @@ export class LaunchListPage {
 
     this.spaceXApi.getPastLaunches().subscribe(data=>{
       this.pastLaunches = data.reverse();
+      this.pastLaunchesInit = data;
       console.log(this.pastLaunches[0].links.video_link);
     });
 
@@ -41,6 +50,7 @@ export class LaunchListPage {
 
     this.spaceXApi.getUpcomingLaunches().subscribe(data=>{
       this.upcomingLaunches = data;
+      this.upcomingLaunchesInit = data;
     });
 
   }
@@ -79,5 +89,32 @@ export class LaunchListPage {
   goToLaunchDetail(launch : ILaunches){
     this.navCtrl.push(LaunchDetailPage, launch);
   }
+
+  goToRocketDetail(rocket: IRocketLaunches){
+    this.navCtrl.push(RocketDetailPage, rocket.rocket_id);
+  }
+
+  goToLaunchpadDetail(launchpad: ILaunchSiteLaunches){
+    this.navCtrl.push(LaunchpadDetailPage, launchpad.site_id);
+  }
+
+  onInput($event) {
+    console.log(this.searchQuery);
+    this.showCancelshouldShowCancel = this.searchQuery.length > 0;
+    this.pastLaunches = this.pastLaunchesInit.filter((launch) => {
+      return launch.mission_name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0;
+    });
+    this.upcomingLaunches = this.upcomingLaunchesInit.filter((launch) => {
+      return launch.mission_name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) >= 0;
+    });
+  }
+
+  onCancel($event) {
+    this.searchQuery = "";
+    this.pastLaunches = this.pastLaunchesInit;
+    this.upcomingLaunches = this.upcomingLaunchesInit;
+    this.showCancelshouldShowCancel = this.searchQuery.length > 0;
+  }
+        
 
 }

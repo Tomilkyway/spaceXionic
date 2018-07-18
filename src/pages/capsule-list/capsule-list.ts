@@ -30,8 +30,8 @@ export class CapsuleListPage {
     console.log('ionViewDidLoad CapsuleListPage');
   }
 
-  goToCapsuleDetail(capsule){
-    this.navCtrl.push(CapsuleDetailPage, capsule);
+  goToCapsuleDetail(capsule : ICapsule){
+    this.navCtrl.push(CapsuleDetailPage, capsule.id);
   }
 
 }
