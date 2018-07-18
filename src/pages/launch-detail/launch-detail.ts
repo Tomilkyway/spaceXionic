@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {RocketDetailPage} from "../rocket-detail/rocket-detail";
 import { ILaunches } from '../../models/launches/ILaunches';
-import { RocketListPage } from '../rocket-list/rocket-list';
-import { IRocket } from '../../models/rocket/IRocket';
+import { IRocketLaunches } from '../../models/launches/IRocketLaunches';
+import { ILaunchSiteLaunches } from '../../models/launches/ILaunchSiteLaunches';
+import { LaunchpadDetailPage } from '../launchpad-detail/launchpad-detail';
 
 /**
  * Generated class for the LaunchDetailPage page.
@@ -30,9 +31,12 @@ export class LaunchDetailPage {
     console.log('ionViewDidLoad LaunchDetailPage');
   }
 
-  goToRocketDetail(rocket: IRocket){
-    console.log(this.launch);
-    this.navCtrl.push(RocketDetailPage, rocket.id);
+  goToRocketDetail(rocket: IRocketLaunches){
+    this.navCtrl.push(RocketDetailPage, rocket.rocket_id);
+  }
+
+  goToLaunchpadDetail(launchpad: ILaunchSiteLaunches){
+    this.navCtrl.push(LaunchpadDetailPage, launchpad.site_id);
   }
 
 }

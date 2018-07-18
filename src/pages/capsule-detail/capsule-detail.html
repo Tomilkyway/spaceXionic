@@ -7,12 +7,54 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>capsule-detail</ion-title>
+    <ion-title *ngIf="capsule">{{capsule.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style="background-image: url('assets/imgs/etoiles.jpg');">
+  <div *ngIf="capsule">
+    <ion-card style="margin-bottom: 30px;border-radius: 7px;box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 15px !important;background-image: url('assets/imgs/etoiles.jpg');border: solid 1px white;">
+      <ion-item style="background-image: url('assets/imgs/etoiles.jpg');">
+        <ion-avatar item-start>
+          <img style="border: solid 1px white;" src="assets/imgs/spacex.jpg">
+        </ion-avatar>
+        <ion-badge color="greenpastel" name="rounded" *ngIf="capsule.active" style="color:green;" float-end>Active</ion-badge>
+        <ion-badge color="redpastel" name="rounded" *ngIf="capsule.active == false" style="color:red;" float-end>Inactive</ion-badge>
+        <h2 style="color: white;">{{capsule.name}}</h2>
+      </ion-item>
+      
+      <img src="assets/imgs/capsule.jpg">
 
+      <div class="separator"></div>
+
+      <div class="separator"></div>
+      
+      <ion-grid class="border-top-grey">
+        <ion-row>
+          <ion-col text-center>
+            <div class="font-bold blue-color">Crew capacity</div>
+            <div style="font-size: 13px;color: white;">{{capsule.crew_capacity}}</div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold blue-color">Orbit duration year</div>
+            <div style="font-size: 13px;color: white;">{{capsule.orbit_duration_yr}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid class="border-top-grey">
+        <ion-row>
+          <ion-col text-center>
+            <div class="font-bold blue-color">Sidewall angle degree</div>
+            <div style="font-size: 13px;color: white;">{{capsule.sidewall_angle_deg}}</div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="font-bold blue-color">Cargo (Solar array)</div>
+            <div style="font-size: 13px;color: white;">{{capsule.trunk.cargo.solar_array}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </div>
 </ion-content>

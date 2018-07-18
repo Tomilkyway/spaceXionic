@@ -62,8 +62,18 @@ export class SpacexApiProvider {
   }
 
   getRocket(id: String): Observable<IRocket> {
-    const endpointUrl = `${this.baseUrl}/rocket` + id
+    const endpointUrl = `${this.baseUrl}/rockets/` + id
     return this.http.get<IRocket>(endpointUrl);
+  }
+
+  getLaunchPad(id: String): Observable<ILaunchPads> {
+    const endpointUrl = `${this.baseUrl}/launchpads/` + id
+    return this.http.get<ILaunchPads>(endpointUrl);
+  }
+
+  getCapsule(id: String): Observable<ICapsule> {
+    const endpointUrl = `${this.baseUrl}/capsules/` + id
+    return this.http.get<ICapsule>(endpointUrl);
   }
 
   

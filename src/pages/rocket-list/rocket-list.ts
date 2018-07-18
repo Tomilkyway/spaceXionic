@@ -21,7 +21,6 @@ export class RocketListPage {
   rockets : IRocket[];
 
   constructor(private navCtrl: NavController, private navParams: NavParams, private spaceXApi : SpacexApiProvider) {
-
     this.spaceXApi.getAllRockets().subscribe(data=>{
       this.rockets = data;
     })
